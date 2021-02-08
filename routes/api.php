@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/login', 'UserController@login');
+
+Route::middleware(['checkToken'])->group(function () {
+Route::get('/users', 'UserController@index');
+Route::post('/users/submit', 'UserController@create');
+});

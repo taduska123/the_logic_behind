@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{url('/users/submit')}}" method="POST">
+    <form action="{{url('/api/users/submit')}}" method="POST">
         @csrf
         <div class="form-group">
         <label for="first_name">First name</label>

@@ -66,7 +66,7 @@ class UserController extends Controller
           
             //return response()->json((string)$token, 200);
             Cache::put('Authorization', (string)$token, now()->addMinutes(5));
-            return redirect('/users');
+            return redirect('/api/users');
     }
 
     

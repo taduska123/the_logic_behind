@@ -16,9 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', 'UserController@login');
 
-Route::middleware(['checkToken'])->group(function () {
-Route::get('/users', 'UserController@index');
-Route::post('/users/submit', 'UserController@create');
-});
