@@ -1,24 +1,41 @@
 # Routes
 
-## GET /login
+## GET /api/login
 This link is for getting the token for Authorization (for this project, the token is stored in Cache)
 
-## GET /users
+## GET /api/users
 This link is for entering the names.
 
-## POST /users/submit
+## POST /api/users/submit ENDPOINT
+
 This link is for posting first and last names that the program could tidy up the JSON. It combines both names to a full name.
+Also this is the endpoint for the task given by The logic behind.
+It can only process a certain type of an array, like in this example:
+
+Input:
+{"users": [
+{
+"first_name": "Tom",
+"last_name": "Tucker"
+},
+{
+"first_name": "Tom",
+"last_name": "Tucker"
+}]}
+
+Output:
+{"users":[{"full_name":"Tom Tucker"},{"full_name":"Tom Tucker"}]}.
 
 # Controller
 ## UserController
 The controller has 3 functions:
-index() is used for /login route to return users view
-create() is used for /users/submit route to handle the data and return a JSON
-login() is used fore /login to cache a token
+index() is used for /api/login route to return users view
+create() is used for /api/users/submit route to handle the data and return a JSON
+login() is used fore /api/login to cache a token
 
 # Middleware
 ## EnsureTokenIsValid
-Used in a group to Authorize /users and /users/submit routes by getting a token from cache
+Used in a group to Authorize /api/users and /api/users/submit routes by getting a token from cache
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
